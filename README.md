@@ -26,9 +26,11 @@ Project is structured as:
    * VendingMachineTests
    
 # Design Decisions
-
-
+* Implemented Interfaced based design so that testing can be easier.
+* As Vending machine can be different types, it was decided to have a generic implementation which can allow individuals to write different implementation based on Payment Method and Account Type
 
 # Improvements
 * Add Unity Container as DI container
-* 
+* Better modelling of Account / Cash Card
+* Instead of using Console.WriteLine() for Logs, use common Logging framework's.
+
