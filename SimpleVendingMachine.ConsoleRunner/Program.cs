@@ -33,7 +33,7 @@ namespace SimpleVendingMachine.ConsoleRunner
             vendingMachine.ValidatePaymentMethod(cashCard);
 
             var account = new Account("My Account");
-            account.Deposit(0.5m);
+            account.Deposit(2.5m);
 
             vendingMachine.AcceptPayment(account);
 
@@ -43,6 +43,8 @@ namespace SimpleVendingMachine.ConsoleRunner
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             var ex = e.ExceptionObject as Exception;
+            Console.WriteLine(ex.Message);
+            Console.WriteLine(ex.StackTrace);
             //LogException("An exception has been caught in WorkflowRunner.", ex);
             Exit(-1);
         }

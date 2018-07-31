@@ -39,7 +39,7 @@ namespace SimpleVendingMachine.Entities.Impl
                 selectedProduct = ReadNumericData();
                 PurchasedProduct = _inventory.AllInventories.Keys.FirstOrDefault(p => p.ProductId == selectedProduct);
             }
-            Console.WriteLine("DEBUG: Product selected for purchase: {0}", PurchasedProduct.ToString());
+            Console.WriteLine(string.Format("DEBUG: Product selected for purchase: {0}", PurchasedProduct.ToString()));
             return selectedProduct;
         }
 
@@ -74,7 +74,7 @@ namespace SimpleVendingMachine.Entities.Impl
                 {
                     Console.WriteLine(string.Format("DEBUG: Withdrawing money {0} from account .. ", TotalAmount));
                     accountOrCash.Withdraw(TotalAmount);
-                    Console.WriteLine("DEBUG: Updating Inventory for .. {0} - Previous Quantity: {1}", PurchasedProduct.Name, _inventory.AllInventories[PurchasedProduct], _inventory.AllInventories[PurchasedProduct] -= PurchasedQuantity);
+                    Console.WriteLine("DEBUG: Updating Inventory for .. {0} - Previous Quantity: {1} - Final Quantity: {2}", PurchasedProduct.Name, _inventory.AllInventories[PurchasedProduct], _inventory.AllInventories[PurchasedProduct] -= PurchasedQuantity);
                 }
             }
         }

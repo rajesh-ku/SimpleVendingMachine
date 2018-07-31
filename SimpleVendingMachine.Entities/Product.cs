@@ -12,7 +12,7 @@
 
         public override string ToString()
         {
-            return string.Format("Product| Id: '{0}', Name: '{1}', Cost: '{2:D2}'", ProductId, Name, Cost);
+            return string.Format("Product| Id: '{0}', Name: '{1}', Cost: '{2}'", ProductId, Name, Cost);
         }
     }
 }
