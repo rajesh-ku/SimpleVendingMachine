@@ -9,8 +9,8 @@ namespace SimpleVendingMachine.Entities.Impl
     {
         private static readonly Object lockObject = new object();
         private readonly IInventory _inventory;
-        public Product PurchasedProduct { get; private set; }
-        public int PurchasedQuantity { get; private set; }
+        public Product PurchasedProduct { get; set; }
+        public int PurchasedQuantity { get; set; }
         public decimal TotalAmount {  get { return (PurchasedProduct.Cost * PurchasedQuantity);  } }
 
         public VendingMachine(IInventory inventory)

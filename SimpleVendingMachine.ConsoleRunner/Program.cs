@@ -1,4 +1,5 @@
 ﻿using SimpleVendingMachine.Entities;
+using SimpleVendingMachine.Entities.Exceptions;
 using SimpleVendingMachine.Entities.Impl;
 using System;
 using System.Collections.Generic;
@@ -29,13 +30,20 @@ namespace SimpleVendingMachine.ConsoleRunner
 
             vendingMachine.SelectQuantityToPurchase();
 
-            var cashCard = new CashCard(9191);
-            vendingMachine.ValidatePaymentMethod(cashCard);
-
+            // For the purpose of this example, lets deposit some cash to the account
+            // Change the value to simulate the lack of funds
             var account = new Account("My Account");
             account.Deposit(2.5m);
 
-            vendingMachine.AcceptPayment(account);
+            var cashCard = new CashCard(9191);
+            if(vendingMachine.ValidatePaymentMethod(cashCard))
+            {
+                vendingMachine.AcceptPayment(account);
+            }
+            else
+            {
+                throw new ValidationException("ERROR: Invalid PIN entered. Purchase Aborted");
+            }
 
             Exit(0);
         }
